@@ -1,19 +1,20 @@
 {
   "name": "electron-note",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "main": "main.js",
   "author": {
     "name": "linjiahong",
     "email": "Mcljhong@outlook.com"
   },
-  "repository": "https://www.baidu.com",
+  "repository": "https://github.com/LinJiaHongAlan/electron-note",
   "dependencies": {
     "@electron/remote": "^2.0.9",
+    "electron-is-dev": "^2.0.0",
     "electron-store": "^8.1.0"
   },
   "build": {
-    "appId": "your.id",
+    "appId": "com.electron.electronic.note",
     "productName": "云文档",
     "copyright": "Copyright © year ${author}",
     "directories": {
@@ -54,6 +55,8 @@
     "dev": "concurrently \"cross-env BROWSER=none npm run start\" \"wait-on http://127.0.0.1:3000 && electron .\"",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
+    "release": "cross-env GH_TOKEN=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 electron-builder",
+    "prerelease": "npm run build && npm run buildMain",
     "prepack": "npm run build && npm run buildMain",
     "predist": "npm run build && npm run buildMain"
   },
@@ -94,6 +97,7 @@
     "styled-components": "^5.3.10",
     "wait-on": "^7.0.1",
     "web-vitals": "^2.1.4",
-    "webpack-cli": "^5.1.0"
+    "webpack-cli": "^5.1.0",
+    "electron-updater": "^5.3.0"
   }
 }

@@ -1,0 +1,6 @@
+owner: LinJiaHongAlan
+repo: electron-note
+provider: github
+updaterCacheDirName: electron-note-updater
+publisherName:
+  - Viking Zhang
