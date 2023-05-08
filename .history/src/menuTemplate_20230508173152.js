@@ -146,8 +146,9 @@ let template = [{
   submenu: [
     {
       label: '检测更新',
+      accelerator: 'Command+Q',
       click: (menuItem, browserWindow, event) => {
-        ipcMain.emit('checkForUpdate')
+        ipcMain.send('checkForUpdate')
       }
     },
     {

@@ -145,12 +145,6 @@ let template = [{
   role: 'help',
   submenu: [
     {
-      label: '检测更新',
-      click: (menuItem, browserWindow, event) => {
-        ipcMain.emit('checkForUpdate')
-      }
-    },
-    {
       label: '学习更多',
       click: () => { shell.openExternal('http://electron.atom.io') }
     },

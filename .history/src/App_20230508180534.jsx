@@ -300,7 +300,7 @@ const App = memo(() => {
 
   return (
     <AppWrapper>
-      <AutoUpdate></AutoUpdate>
+      <AutoUpdate style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}></AutoUpdate>
       <div className='fileSearchBox-left'>
         <FileSearch importFiles={importFiles} createItem={createItem} deleteHandel={deleteHandel} changeText={changeFileTitle} onFileClick={fileClick} files={files}></FileSearch>
       </div>

@@ -4,7 +4,7 @@ const template = require('./src/menuTemplate')
 const Store = require('electron-store')
 const path = require('path')
 const isDev = require('electron-is-dev')
-const { autoUpdaterHandel } = require('./autoUpdater')
+const { autoUpdaterHandel } = require("electron-updater")
 
 // 初始化electron-store
 Store.initRenderer();

@@ -8,7 +8,6 @@ import update from 'immutability-helper';
 import fileHelper from './utils/fileHelper'
 import { createGuid } from './utils/common';
 import useIpcRenderer from './hooks/useIpcRenderer'
-import AutoUpdate from './view/AutoUpdate/AutoUpdate'
 
 const { join, basename, extname, dirname } = window.require('path')
 const remote = window.require('@electron/remote')
@@ -300,7 +299,6 @@ const App = memo(() => {
 
   return (
     <AppWrapper>
-      <AutoUpdate></AutoUpdate>
       <div className='fileSearchBox-left'>
         <FileSearch importFiles={importFiles} createItem={createItem} deleteHandel={deleteHandel} changeText={changeFileTitle} onFileClick={fileClick} files={files}></FileSearch>
       </div>

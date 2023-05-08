@@ -1,10 +1,10 @@
-const { app, BrowserWindow, Menu } = require('electron')
+const { app, BrowserWindow, Menu, dialog } = require('electron')
 const remote = require('@electron/remote/main')
 const template = require('./src/menuTemplate')
 const Store = require('electron-store')
 const path = require('path')
 const isDev = require('electron-is-dev')
-const { autoUpdaterHandel } = require('./autoUpdater')
+const { autoUpdaterHandel } = require("electron-updater")
 
 // 初始化electron-store
 Store.initRenderer();
@@ -14,6 +14,9 @@ Menu.setApplicationMenu(menu)
 
 // 监听electron完成加载
 app.whenReady().then(() => {
+  // 自动更新
+  autoUpdaterHandel()
+
   // 创建一个窗口
   const mainWin = new BrowserWindow({
     width: 1200,
@@ -30,6 +33,4 @@ app.whenReady().then(() => {
   const urlLocation = isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, './index.html')}`
   mainWin.loadURL(urlLocation)
   mainWin.webContents.openDevTools()
-  // 自动更新
-  autoUpdaterHandel(mainWin)
 })

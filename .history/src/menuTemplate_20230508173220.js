@@ -147,7 +147,7 @@ let template = [{
     {
       label: '检测更新',
       click: (menuItem, browserWindow, event) => {
-        ipcMain.emit('checkForUpdate')
+        ipcMain.send('checkForUpdate')
       }
     },
     {
