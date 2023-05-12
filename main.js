@@ -27,7 +27,7 @@ app.whenReady().then(() => {
   remote.initialize()
   remote.enable(mainWin.webContents)
   // 加载窗口页面
-  const urlLocation = isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, './index.html')}`
+  const urlLocation = isDev ? 'http://localhost:3000/main' : `file://${path.join(__dirname, './index.html')}`
   mainWin.loadURL(urlLocation)
   mainWin.webContents.openDevTools()
   // 自动更新

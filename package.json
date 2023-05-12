@@ -1,6 +1,6 @@
 {
   "name": "electron-note",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": true,
   "main": "main.js",
   "author": {
@@ -9,10 +9,12 @@
   },
   "repository": "https://github.com/LinJiaHongAlan/electron-note",
   "dependencies": {
+    "@craco/craco": "^7.1.0",
     "@electron/remote": "^2.0.9",
     "electron-is-dev": "^2.0.0",
     "electron-log": "^4.4.8",
-    "electron-store": "^8.1.0"
+    "electron-store": "^8.1.0",
+    "react-router-dom": "^6.11.1"
   },
   "build": {
     "appId": "com.electron.electronic.note",
@@ -22,7 +24,10 @@
       "buildResources": "assets"
     },
     "publish": [
-      "github"
+      {
+        "provider": "generic",
+        "url": "http://172.168.50.235:3332/win32"
+      }
     ],
     "extraMetadata": {
       "main": "./build/main.js"
@@ -32,9 +37,10 @@
         "msi",
         "nsis"
       ],
+      "verifyUpdateCodeSignature": false,
       "icon": "assets/icon.ico",
       "artifactName": "${productName}-Web-Setup-${version}.${ext}",
-      "publisherName": "Viking Zhang"
+      "publisherName": "linjiahong"
     },
     "nsis": {
       "allowToChangeInstallationDirectory": true,
@@ -59,7 +65,7 @@
     "dev": "concurrently \"cross-env BROWSER=none npm run start\" \"wait-on http://127.0.0.1:3000 && npm run ele\"",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "release": "cross-env GH_TOKEN=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 electron-builder",
+    "release": "electron-builder",
     "prerelease": "npm run build && npm run buildMain",
     "prepack": "npm run build && npm run buildMain",
     "predist": "npm run build && npm run buildMain"

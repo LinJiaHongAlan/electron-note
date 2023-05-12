@@ -19,7 +19,6 @@ module.exports = {
     function sendUpdateMessage({ cmd, data }) {
       mainWin.webContents.send(cmd, data)
     }
-
     // 开发环境修改配置地址
     if (isDev) {
       autoUpdater.forceDevUpdateConfig = true
@@ -34,7 +33,6 @@ module.exports = {
     })
     // 监听事件发现新版本
     autoUpdater.on('update-available', () => {
-      log.info('应用有新版本')
       dialog.showMessageBox({
         type: 'info',
         title: '应用有新版本',
@@ -66,7 +64,7 @@ module.exports = {
       sendUpdateMessage({ cmd: 'downloadProgress', data: progressObj })
     })
     // 开始更新
-    autoUpdater.on('update-downloaded', function (event, releaseNotes, releaseName, releaseDate, updateUrl, quitAndUpdate) {
+    autoUpdater.on('update-downloaded', function () {
       log.warn('开始更新')
       autoUpdater.quitAndInstall()
       mainWin.destroy()
